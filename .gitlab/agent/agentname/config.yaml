@@ -1,0 +1,9 @@
+gitops:
+ manifest_projects:
+ - id: "eilerb101/linode-mgmt"
+   default_namespace: default
+   paths:
+   - glob: '/atl/*.{yaml,json,yml}'
+observability:
+ logging:
+   level: debug
