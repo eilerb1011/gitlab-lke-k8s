@@ -4,7 +4,7 @@ config for managing k8s on Linode through Gitlab
 The purpose of this project is to provide a template for managing k8s clusters through CI/CD on Gitlab.
 
 Pre-requisites:  
-You must have a Gitlab account with access to a Docker runner.
+You must have a Gitlab account.
 You should have already created your k8s cluster through your CSP using whatever method you choose.
 You should have access to a bastion with kubectl and helm
 KAS should be running on your server (ignore this for Gitlab.com)
@@ -26,6 +26,9 @@ The example agent files are set up in the following manner and you should change
   Click on Infrastructure in the left navigation and select Kubernetes.
   Click Connect cluster and select the agent you just modified.
   This will spit out a helm chart that must be run against the cluster.
-    If you are working with multiple clusters, you must also declare the --kubeconfig= line to tell helm with cluster you are modifying
+    If you are working with multiple clusters, you must also declare the --kubeconfig [path] line to tell helm which cluster you are modifying
+   Once the helm chart is run against the cluster, it will spin up the Pod that interfaces with KAS.
+Some sample yamls are included under the east and west directories.  These YAMLs will spin up an nginx replica set and cloud load balancer in each k8s cluster
+  --Edit these files or add new yamls to support your k8s deployments
    
   
