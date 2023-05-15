@@ -12,23 +12,41 @@ Infrastructure must be enabled on the project.
 
 Steps:
 Fork this repo.
+
 Create a Personal Access Token in your Github account.
+
 Import this project into your Gitlab (you must use the same email address on both Gitlab and Github).
+
 Determine the structure you want to use.  This setup uses /us-east /us-west to hold yamls for each cluster.
+
 The example agent files are set up in the following manner and you should change a few fields:
+
   Within .gitlab/agents/us-east-prod/config.yaml 
- Modify the config:
-  On line 3 modify the project path to suit your own project path from your browser bar.
-  On line 4 set the default namespace you would like to work with in the k8s cluster.  This is where your yamls will default to if you do not specify a namespace in the yaml
-  On line 6 set the path to monitor for changes.
+
+  Modify the config:
+  
+    On line 3 modify the project path to suit your own project path from your browser bar.
+  
+    On line 4 set the default namespace you would like to work with in the k8s cluster.  This is where your yamls will default to if you do not specify a namespace in the yaml
+  
+    On line 6 set the path to monitor for changes.
+    
     This example shows /us-east-prod/*.{yaml,json,yml}_ so our agent will look for any yaml, yml or json file extensions in that /us-east-prod/ directory at the root of our project
-  Commit your changes.
+  
+    Commit your changes.
+  
   Click on Infrastructure in the left navigation and select Kubernetes.
+  
   Click Connect cluster and select the agent you just modified.
+  
   This will spit out a helm chart that must be run against the cluster.
+    
     If you are working with multiple clusters, you must also declare the --kubeconfig [path] line to tell helm which cluster you are modifying
-   Once the helm chart is run against the cluster, it will spin up the Pod that interfaces with KAS.
+   
+    Once the helm chart is run against the cluster, it will spin up the Pod that interfaces with KAS.
+
 Some sample yamls are included under the east and west directories.  These YAMLs will spin up an nginx replica set and cloud load balancer in each k8s cluster
+  
   --Edit these files or add new yamls to support your k8s deployments
    
   
