@@ -1,10 +1,10 @@
 # gitlab-lke-k8s
 
-The purpose of this project is to provide a template for managing k8s clusters through on Gitlab.
+The purpose of this project is to provide a template for managing LKE (k8s) clusters through Gitlab.
 
 **Pre-requisites:**  
 You must have a Gitlab account.  
-You should have already created your k8s cluster through your CSP using whatever method you choose.  
+You should have already created your k8s cluster through your CSP (Akamai) using whatever method you choose.  
 You should have access to a bastion with kubectl and helm.  
 KAS should be running on your server (ignore this for Gitlab.com).  
 Infrastructure must be enabled on the project.  
