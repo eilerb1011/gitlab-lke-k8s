@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: nginx-lb
   annotations:
-    service.beta.kubernetes.io/linode-loadbalancer-default-protocol: http
+    #service.beta.kubernetes.io/linode-loadbalancer-default-protocol: http
 spec:
   selector:
     app: nginx
@@ -11,4 +11,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+  type: ClusterIP
